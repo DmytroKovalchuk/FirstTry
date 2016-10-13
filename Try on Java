@@ -1,0 +1,66 @@
+import java.io.*;
+import java.util.Map;
+import java.util.TreeMap;
+import java.util.TreeSet;
+
+/**
+ * Created by Lenovo on 08.09.2016.
+ */
+public class SolutionNeedForAttention {
+    public static void main(String[] args) throws IOException
+    {
+        FileOutputStream outputStream = new FileOutputStream("Lion.avi",true);
+        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+        TreeMap<Integer,String> map1 = new TreeMap<Integer, String>();
+
+        TreeSet<String> map = new TreeSet<String>();
+
+        while (true){
+            String name = reader.readLine();
+            if(name.equals("end")){
+                reader.close();
+                break;
+            }
+            else{ map.add(name);}
+
+
+        }
+        returnNewSortedMap(map1, map);
+        byte [] buffer;
+
+
+        for(Map.Entry<Integer,String> s : map1.entrySet()){
+            FileInputStream inputStream = new FileInputStream(s.getValue());
+            while (inputStream.available() > 0){
+                buffer = new byte[inputStream.available()];
+                inputStream.read(buffer);
+                inputStream.close();
+                outputStream.write(buffer);
+
+            }
+            outputStream.close();
+        }
+
+
+
+
+    }
+
+    public static void returnNewSortedMap(TreeMap<Integer, String> map1, TreeSet<String> map)
+    {
+        for(String s : map){
+            int integer = 0;
+            StringBuilder string = new StringBuilder();
+            String mass [] = s.split(" ");
+            for(String index : mass){
+                string.append(index);
+            }
+            try {
+                integer = Integer.parseInt(string.substring(13));
+            }catch (Exception e){
+
+            }
+            map1.put(integer,string.toString());
+        }
+    }
+}

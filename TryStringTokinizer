@@ -1,0 +1,15 @@
+import java.util.StringTokenizer;
+
+/**
+ * Created by Lenovo on 13.09.2016.
+ */
+public class TryStringTokinizer {
+    public static void main(String[] args) {
+        String string = "I was walking along a street";
+        StringTokenizer stringTokenizer = new StringTokenizer(string," ,w,I");
+while (stringTokenizer.hasMoreTokens()){
+    System.out.print(stringTokenizer.nextToken()+" ");
+}
+
+    }
+}

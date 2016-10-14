@@ -1,0 +1,19 @@
+import java.io.UnsupportedEncodingException;
+
+public class TryToTranceformate {
+    public TryToTranceformate() {
+    }
+
+    public static void main(String[] args) throws UnsupportedEncodingException {
+        String str = "\',\'";
+        byte[] bytes = str.getBytes("ascii");
+        byte[] arr$ = bytes;
+        int len$ = bytes.length;
+
+        for(int i$ = 0; i$ < len$; ++i$) {
+            byte var10000 = arr$[i$];
+            System.out.println(3);
+        }
+
+    }
+}

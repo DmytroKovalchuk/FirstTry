@@ -1,0 +1,39 @@
+import java.text.DateFormatSymbols;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Locale;
+
+public class TrySimpleDateFormat {
+    private static DateFormatSymbols myDateFormatSymbols = new DateFormatSymbols() {
+        public String[] getMonths() {
+            return new String[]{"января", "февраля", "марта", "апреля", "мая", "июня", "июля", "августа", "сентября", "октября", "ноября", "декабря"};
+        }
+    };
+
+    public TrySimpleDateFormat() {
+    }
+
+    public static void main(String[] args) {
+        Date currentDate = new Date();
+        SimpleDateFormat dateFormat = null;
+        dateFormat = new SimpleDateFormat();
+        System.out.println("Constructor 1: " + dateFormat.format(currentDate));
+        dateFormat = new SimpleDateFormat("dd MMMM");
+        System.out.println("Constructor 2: " + dateFormat.format(currentDate));
+        dateFormat = new SimpleDateFormat("dd MMMM", myDateFormatSymbols);
+        System.out.println("Constructor 3: " + dateFormat.format(currentDate));
+        dateFormat = new SimpleDateFormat("dd MMMM yyyy", Locale.ENGLISH);
+        System.out.println("Constructor 4: " + dateFormat.format(currentDate));
+        SimpleDateFormat myDateFormat = null;
+        myDateFormat = new SimpleDateFormat("yyyy.MM.dd ", Locale.ENGLISH);
+        System.out.println("My Date Format   " + myDateFormat.format(currentDate));
+
+        try {
+            System.out.println(myDateFormat.parse("15/04/1990"));
+        } catch (ParseException var5) {
+            ;
+        }
+
+    }
+}

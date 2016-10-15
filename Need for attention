@@ -1,0 +1,73 @@
+import java.io.BufferedReader;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.Iterator;
+import java.util.TreeMap;
+import java.util.TreeSet;
+import java.util.Map.Entry;
+
+public class SolutionNeedForAttention {
+    public SolutionNeedForAttention() {
+    }
+
+    public static void main(String[] args) throws IOException {
+        FileOutputStream outputStream = new FileOutputStream("Lion.avi", true);
+        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+        TreeMap map1 = new TreeMap();
+        TreeSet map = new TreeSet();
+
+        while(true) {
+            String buffer = reader.readLine();
+            if(buffer.equals("end")) {
+                reader.close();
+                returnNewSortedMap(map1, map);
+                Iterator i$ = map1.entrySet().iterator();
+
+                while(i$.hasNext()) {
+                    Entry s = (Entry)i$.next();
+                    FileInputStream inputStream = new FileInputStream((String)s.getValue());
+
+                    while(inputStream.available() > 0) {
+                        byte[] buffer1 = new byte[inputStream.available()];
+                        inputStream.read(buffer1);
+                        inputStream.close();
+                        outputStream.write(buffer1);
+                    }
+
+                    outputStream.close();
+                }
+
+                return;
+            }
+
+            map.add(buffer);
+        }
+    }
+
+    public static void returnNewSortedMap(TreeMap<Integer, String> map1, TreeSet<String> map) {
+        int integer;
+        StringBuilder string;
+        for(Iterator i$ = map.iterator(); i$.hasNext(); map1.put(Integer.valueOf(integer), string.toString())) {
+            String s = (String)i$.next();
+            integer = 0;
+            string = new StringBuilder();
+            String[] mass = s.split(" ");
+            String[] arr$ = mass;
+            int len$ = mass.length;
+
+            for(int i$1 = 0; i$1 < len$; ++i$1) {
+                String index = arr$[i$1];
+                string.append(index);
+            }
+
+            try {
+                integer = Integer.parseInt(string.substring(13));
+            } catch (Exception var11) {
+                ;
+            }
+        }
+
+    }
+}

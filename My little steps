@@ -1,0 +1,52 @@
+import java.util.Iterator;
+import java.util.TreeMap;
+import java.util.TreeSet;
+import java.util.Map.Entry;
+
+public class Try7668 {
+    public Try7668() {
+    }
+
+    public static void main(String[] args) {
+        TreeMap map1 = new TreeMap();
+        TreeSet map = new TreeSet();
+        map.add("Lion.avi.part1     ");
+        map.add("      Lion.avi.part32     ");
+        map.add("   Lion.avi.part8");
+        map.add("Lion.avi.part7");
+        map.add("Lion.avi.part95");
+        map.add("Lion.avi.part33");
+        map.add("Lion.avi.part2");
+        map.add("Lion.avi.part5");
+        map.add("Lion.avi.part87");
+        map.add("Lion.avi.part77");
+
+        Iterator i$;
+        int integer;
+        String string;
+        for(i$ = map.iterator(); i$.hasNext(); map1.put(Integer.valueOf(integer), string)) {
+            String s = (String)i$.next();
+            integer = 0;
+            string = "";
+            String[] mass = s.split(" ");
+
+            for(int i = 0; i < mass.length; ++i) {
+                string = string + mass[i];
+            }
+
+            try {
+                integer = Integer.parseInt(string.substring(13));
+            } catch (Exception var9) {
+                ;
+            }
+        }
+
+        i$ = map1.entrySet().iterator();
+
+        while(i$.hasNext()) {
+            Entry var10 = (Entry)i$.next();
+            System.out.println((String)var10.getValue());
+        }
+
+    }
+}

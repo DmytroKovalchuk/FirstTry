@@ -1,0 +1,10 @@
+import java.text.DateFormatSymbols;
+
+final class TrySimpleDateFormat$1 extends DateFormatSymbols {
+    TrySimpleDateFormat$1() {
+    }
+
+    public String[] getMonths() {
+        return new String[]{"января", "февраля", "марта", "апреля", "мая", "июня", "июля", "августа", "сентября", "октября", "ноября", "декабря"};
+    }
+}

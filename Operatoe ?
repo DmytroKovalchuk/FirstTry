@@ -1,0 +1,16 @@
+public class Parent {
+    public String str;
+
+    public Parent() {
+    }
+
+    public void m1() {
+        this.str = "I am a Parent metod";
+        System.out.println(this.str);
+    }
+
+    public String minChislo(String chislo) {
+        int k = Integer.parseInt(chislo);
+        return k < 10?"Chislo menshe":"Chislo bolshe";
+    }
+}

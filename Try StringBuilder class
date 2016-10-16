@@ -1,0 +1,18 @@
+public class StringBuilderJava {
+    static StringBuilder newString = new StringBuilder();
+
+    public StringBuilderJava() {
+    }
+
+    public static void main(String[] args) {
+        String str1 = "erwvewrv";
+        String str2 = "22222222";
+        String str3 = "11111111";
+        String str4 = "e33333333";
+        int str5 = 444444444;
+        long str6 = 5555L;
+        double str7 = 666.0D;
+        newString.append(str1).append(str2).append(str3).append(str4).append(str5).append(str6).append(str7);
+        System.out.println(newString.toString());
+    }
+}

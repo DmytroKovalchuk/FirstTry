@@ -1,0 +1,13 @@
+import java.text.MessageFormat;
+
+public class ParseStringFirstTry {
+    public ParseStringFirstTry() {
+    }
+
+    public static void main(String[] args) {
+        String stroka = "сколько єто может продолжаться? Єто продолжиться";
+        new MessageFormat(stroka);
+        long time = (long)(Math.random() * 2000.0D);
+        System.out.println(time);
+    }
+}

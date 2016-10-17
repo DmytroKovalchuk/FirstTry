@@ -1,0 +1,11 @@
+public class MyMiner$Tanka extends Thread {
+    public MyMiner$Tanka() {
+    }
+
+    public void run() {
+        System.out.println("Tanka");
+        System.out.println("is");
+        System.out.println("sleepping");
+        System.out.println("now");
+    }
+}

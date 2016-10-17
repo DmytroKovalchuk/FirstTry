@@ -1,0 +1,11 @@
+public class MyMiner$Dimka extends Thread {
+    public MyMiner$Dimka() {
+    }
+
+    public void run() {
+        System.out.println("I");
+        System.out.println("Dimka");
+        System.out.println("is");
+        System.out.println("working");
+    }
+}

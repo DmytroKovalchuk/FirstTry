@@ -1,0 +1,5 @@
+﻿public class Tanka файл afnbku файл вид 
+String name; вид файл
+int years;4tgf
+boolean sex;
+

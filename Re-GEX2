@@ -1,0 +1,10 @@
+/**
+ * Created by Admin on 16.09.16.
+ */
+public class IntTry {
+    public static void main(String[] args) {
+        String str = "ekrtrdluitliuer";
+
+        System.out.println(str.matches("^\\D*$"));
+    }
+}

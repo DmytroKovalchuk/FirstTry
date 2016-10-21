@@ -1,0 +1,33 @@
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.nio.Buffer;
+
+/**
+ * Created by Admin on 12.09.16.
+ */
+public class TryToGetFirstNameFromString {
+    public static void main(String[] args) throws IOException {
+        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+
+
+
+        String stroka = "";
+        while (true){
+           String fromConsole = reader.readLine();
+
+            stroka+=(String.valueOf(fromConsole));
+            if(fromConsole.equals("ok")){break;}
+        }
+
+        String s = stroka.replaceAll("[. , : ; ! ? - ()  ... \"\" ]","" );
+        String mass [] = s.split(" ");
+        int worldCount = 0;
+        for(String str : mass){
+            if(str.equals("world")){ worldCount++;}
+
+        }
+        System.out.println(s);
+
+    }
+    }

@@ -1,0 +1,27 @@
+import sun.misc.ASCIICaseInsensitiveComparator;
+
+import java.util.ArrayList;
+
+/**
+ * Created by Admin on 06.09.16.
+ */
+public class TryToParseStringToDouble {
+    public static void main(String[] args) {
+        //char k [] = {'2', '9.9',};
+
+        int c = 72;
+        byte k = 127;
+        String str = "123 343 324 645 342  342 1234 ";
+        ArrayList<String> myList = new ArrayList<String>();
+
+
+       /* System.out.println(str);
+        String mass [] = str.split(" ");
+
+        for(int i = 0; i < mass.length; i++) {
+            System.out.print(mass[i] );
+        }*/
+        System.out.println((char)c);
+        int t = ASCIICaseInsensitiveComparator.lowerCaseHashCode(" ");
+    }
+}

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+   <head>
+        <meta charset = "UTF-8"/>
+        <title>My First HTML page</title>  
+   </head>
+  
+    <body>
+         
+		  1) Hello <a href = "http://gogle.com">World</a>! </br>
+		  2) Hello <strong>world</strong>!</br>
+		  3) Hello <em>world</em>!</br>
+		  4) Hello <h1>world!</h1></br>
+		  5)       <h2>world!</h2></br>
+				   <h3>world!</h3></br>
+				   <h4>wrorld!</h4></br>
+				   <h5>world!</h5></br>
+				   <h6>world!</h6></br>
+	      6)        Dimka    <img src = "20160925_201431.jpg" width = "100px" height = ""/> 
+		     <h1>+</h1> 
+		            Bad Cat  <img src = "20160715_130854.jpg" width = "100px" height = ""/>
+             <h1>=</h1>	
+	      7)<div>Hello world!<div/>            
+	      8)<table border = "5">
+		        <tr><td>Hello</td><td>world</td><td>!</td></tr><tr><td>Hello</td><td>world</td><td>!</td></tr>
+               		  
+		  </table>
+	
+	</body>
+   
+   
+</html>
+ 

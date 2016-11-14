@@ -1,58 +1,29 @@
-package com.javarush.test.level23.lesson08.task02;
+package com.javarush.test.level23.lesson08.task01;
 
-/* Повторяем threads
-Сделать так, чтобы в методе someActions вызывались только методы класса Solution.
-Ожидаемый вывод в методе main:
-Amigo: Mmmmm, beef
-Amigo: knock knock
-Amigo: Zzzzzzz...1 sec
+/* Напряги извилины!
+Метод printName должен выводить свое собственное имя, т.е. "sout"
+Сделайте минимум изменений.
 */
 public class Solution {
-    public final String name;
-    public final String food;
-    public final String sound;
+    private String name;
 
-    public Solution(String name, String food, String sound) {
+    Solution(String name) {
         this.name = name;
-        this.food = food;
-        this.sound = sound;
     }
 
-    public void eat() {
-        System.out.println(name + ": Mmmmm, " + food);
+     String getName() {
+        return name;
     }
 
-    public void play() {
-        System.out.println(name + ": " + sound + " " + sound);
-    }
-
-    public void sleep(long milliseconds) {
-        System.out.println(name + ": Zzzzzzz..." + (milliseconds / 1000) + " sec");
-    }
-
-    public void live() throws InterruptedException {
-        Thread thread = new Thread() {
-
-
-            public void run() {
-                try {
-                    someActions();
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
+    private void sout() {
+        new Solution("sout") {
+            void printName() {
+                System.out.println(getName());
             }
-
-            private void someActions() throws InterruptedException {
-                eat();
-                play();
-                Solution.this.sleep(1000);
-            }
-        };
-        thread.start();
-        thread.join();
+        }.printName();
     }
 
-    public static void main(String[] args) throws InterruptedException {
-        new Solution("Amigo", "beef", "knock").live();
+    public static void main(String[] args) {
+        new Solution("main").sout();
     }
 }

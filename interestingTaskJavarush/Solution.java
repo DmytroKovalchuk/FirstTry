@@ -1,43 +1,55 @@
-package com.javarush.test.level19.lesson08.task04;
+package com.javarush.test.level23.lesson06.task02;
 
-/* Решаем пример
-В методе main подмените объект System.out написанной вами ридер-оберткой по аналогии с лекцией
-Ваша ридер-обертка должна выводить на консоль решенный пример
-Вызовите готовый метод printSomething(), воспользуйтесь testString
-Верните переменной System.out первоначальный поток
-
-Возможные операции: + - *
-Шаблон входных данных и вывода: a [знак] b = c
-Отрицательных и дробных чисел, унарных операторов - нет.
-
-Пример вывода:
-3 + 6 = 9
+/* Рефакторинг
+Отрефакторите класс Solution: вынесите все константы в public вложенный(nested) класс Constants.
+Запретите наследоваться от Constants.
 */
-
-import java.io.ByteArrayOutputStream;
-import java.io.PrintStream;
-import java.io.SyncFailedException;
-
 public class Solution {
-    public static TestString testString = new TestString();
 
-    public static void main(String[] args) {
-        PrintStream oldPrintStream = System.out;
-        ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-        PrintStream newPrintStream = new PrintStream(byteArrayOutputStream);
-        System.setOut(newPrintStream);
-        testString.printSomething();
-        String arrayString [] = byteArrayOutputStream.toString().split(" ");
-        System.setOut(oldPrintStream);
-
-
-
+    public static final class Constants{
+        public static final String SERVER_IS_NOT_ACCESSIBLE_FOR_NOW = "Server is not accessible for now.";
+        public static final String USER_IS_NOT_AUTHORIZED = "User is not authorized.";
+        public static final String USER_IS_BANNED = "User is banned.";
+        public static final String ACCESS_IS_DENIED = "Access is denied.";
     }
 
-    public static class TestString {
-        public void printSomething() {
-            System.out.println("3 + 6 = ");
+    public class ServerNotAccessibleException extends Exception {
+        public ServerNotAccessibleException() {
+            super(Constants.SERVER_IS_NOT_ACCESSIBLE_FOR_NOW);
+        }
+
+        public ServerNotAccessibleException(Throwable cause) {
+            super(Constants.SERVER_IS_NOT_ACCESSIBLE_FOR_NOW, cause);
+        }
+    }
+
+    public class UnauthorizedUserException extends Exception {
+        public UnauthorizedUserException() {
+            super(Constants.USER_IS_NOT_AUTHORIZED);
+        }
+
+        public UnauthorizedUserException(Throwable cause) {
+            super(Constants.USER_IS_NOT_AUTHORIZED, cause);
+        }
+    }
+
+    public class BannedUserException extends Exception {
+        public BannedUserException() {
+            super(Constants.USER_IS_BANNED);
+        }
+
+        public BannedUserException(Throwable cause) {
+            super(Constants.USER_IS_BANNED, cause);
+        }
+    }
+
+    public class RestrictionException extends Exception {
+        public RestrictionException() {
+            super(Constants.ACCESS_IS_DENIED);
+        }
+
+        public RestrictionException(Throwable cause) {
+            super(Constants.ACCESS_IS_DENIED, cause);
         }
     }
 }
-

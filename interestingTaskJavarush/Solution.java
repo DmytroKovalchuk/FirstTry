@@ -1,43 +1,58 @@
-package com.javarush.test.level19.lesson08.task04;
+package com.javarush.test.level23.lesson08.task02;
 
-/* Решаем пример
-В методе main подмените объект System.out написанной вами ридер-оберткой по аналогии с лекцией
-Ваша ридер-обертка должна выводить на консоль решенный пример
-Вызовите готовый метод printSomething(), воспользуйтесь testString
-Верните переменной System.out первоначальный поток
-
-Возможные операции: + - *
-Шаблон входных данных и вывода: a [знак] b = c
-Отрицательных и дробных чисел, унарных операторов - нет.
-
-Пример вывода:
-3 + 6 = 9
+/* Повторяем threads
+Сделать так, чтобы в методе someActions вызывались только методы класса Solution.
+Ожидаемый вывод в методе main:
+Amigo: Mmmmm, beef
+Amigo: knock knock
+Amigo: Zzzzzzz...1 sec
 */
-
-import java.io.ByteArrayOutputStream;
-import java.io.PrintStream;
-import java.io.SyncFailedException;
-
 public class Solution {
-    public static TestString testString = new TestString();
+    public final String name;
+    public final String food;
+    public final String sound;
 
-    public static void main(String[] args) {
-        PrintStream oldPrintStream = System.out;
-        ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-        PrintStream newPrintStream = new PrintStream(byteArrayOutputStream);
-        System.setOut(newPrintStream);
-        testString.printSomething();
-        String arrayString [] = byteArrayOutputStream.toString().split(" ");
-        System.setOut(oldPrintStream);
-
-
-
+    public Solution(String name, String food, String sound) {
+        this.name = name;
+        this.food = food;
+        this.sound = sound;
     }
 
-    public static class TestString {
-        public void printSomething() {
-            System.out.println("3 + 6 = ");
-        }
+    public void eat() {
+        System.out.println(name + ": Mmmmm, " + food);
+    }
+
+    public void play() {
+        System.out.println(name + ": " + sound + " " + sound);
+    }
+
+    public void sleep(long milliseconds) {
+        System.out.println(name + ": Zzzzzzz..." + (milliseconds / 1000) + " sec");
+    }
+
+    public void live() throws InterruptedException {
+        Thread thread = new Thread() {
+
+
+            public void run() {
+                try {
+                    someActions();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+
+            private void someActions() throws InterruptedException {
+                eat();
+                play();
+                Solution.this.sleep(1000);
+            }
+        };
+        thread.start();
+        thread.join();
+    }
+
+    public static void main(String[] args) throws InterruptedException {
+        new Solution("Amigo", "beef", "knock").live();
     }
 }
-

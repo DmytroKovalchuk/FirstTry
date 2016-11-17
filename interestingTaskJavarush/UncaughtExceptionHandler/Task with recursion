@@ -1,0 +1,21 @@
+public class My implements Thread.UncaughtExceptionHandler {
+    @Override
+    public void uncaughtException(Thread t, Throwable e) {
+        t.interrupt();
+        ArrayList<Throwable> list = new ArrayList<Throwable>();
+        Throwable cause = e;
+        while (cause != null){
+            list.add(0,cause);
+            cause = cause.getCause();//!!!!!!!!!!!!!!!
+        }
+        for(Throwable elem : list){
+            System.out.println(elem);
+        }
+
+    }
+
+    public static void main(String[] args){
+        Throwable e =  new Exception("ABC", new RuntimeException("DEF", new IllegalAccessException("GHI")));
+        new Solution().uncaughtException(Thread.currentThread(), e);
+    }
+}

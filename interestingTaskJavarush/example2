@@ -1,0 +1,43 @@
+public class QuizfulTest  {
+
+   public QuizfulTest(){
+       System.out.println("Quizful");
+   }
+
+   public static class A extends QuizfulTest{
+        public A(){
+            System.out.println("I am A");
+        }
+    }
+
+    public static class B extends A {
+        public B(){
+            System.out.println("I am B");
+        }
+    }
+
+    public static class C extends B {
+        public C (){
+           new B();
+            System.out.println("I am C");
+        }
+
+        static {
+            System.out.println("I am static C");
+        }
+    }
+
+    public static void main(String[] args) {
+
+        B b = new QuizfulTest.C();
+        b.write();
+    }
+
+    static {
+        System.out.println("I am static QuizfulTest");
+    }
+
+    public static void write(){
+        System.out.println("I am method in Quizful");
+    }
+}

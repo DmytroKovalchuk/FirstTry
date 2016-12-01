@@ -1,0 +1,24 @@
+public class MyComparator {
+    public static class CustomizedComparator<T> implements Comparator <T> {
+        private Comparator<T>[] list;
+
+        CustomizedComparator(Comparator<T>[] list){
+            this.list = list;
+        }
+
+
+
+        @Override
+        public int compare(T o1, T o2)
+        {
+            int rezult = 0;
+            for(Comparator<T> element : list){
+                  rezult = element.compare(o1, o2);
+                if(rezult != 0){
+                    break;
+                }
+            }
+            return rezult;
+        }
+    }
+}
